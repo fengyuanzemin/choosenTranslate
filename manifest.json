@@ -4,7 +4,7 @@
     "name": "网页专注阅读器",
     "description": "过滤网页广告，能对选中的单词进行翻译",
     "version": "1.0",
-
+    "minimum_chrome_version": "37",
     "author": "fengyuanzemin",
 
     "browser_action": {
@@ -13,6 +13,22 @@
         "default_title": "网页专注阅读器"
     },
     "permissions": [
-        "activeTab"
-    ]
+        "cookies",
+        "contextMenus",
+        "activeTab",
+        "tabs",
+        "storage",
+        "*://*/*",
+        "\u003Call_urls\u003E"
+    ],
+    "content_scripts": [
+    {
+        "css":["css/shanbay.css"],
+        "js": [
+            "js/jquery.min.js",
+            "js/shanbay.js"
+        ],
+        "matches": ["*://*/*"]
+    }],
+    "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self'"
 }
