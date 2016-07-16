@@ -38,7 +38,10 @@ function normalize(word) {
 
 function popover(alldata) {
     var data = alldata.data;
-    var html = '<div class="shanbay_popover"><div class="shanbay_title">' +
+    var html = '<div class="shanbay_popover">' +
+        '<div class="triangle-up"></div>' +
+        '<div class="shanbay_container">' +
+        '<div class="shanbay_title">' +
         '<span class="shanbay_name">' + data.audio_name + '</span><br/>' +
         '<span class="shanbay_uk speak">' +
         '<span class="uk_pron">[' + data.pronunciations.uk + ']</span>' +
@@ -51,11 +54,10 @@ function popover(alldata) {
         '</div>' +
         '<div class="shanbay_definitions">' + data.definition.split('\n').join('<br/>') +
         '</div>' +
+        '</div>' +
         '</div>';
     $('.shanbay_popover').remove();
     $('body').append(html);
-    var name=data.audio_name;
-    // console.log(data);
     getSelectionOffset(function(left, top) {
         setPopoverPosition(left, top);
         var h = $(window).scrollTop() + $(window).height();
@@ -118,6 +120,7 @@ function setPopoverPosition(left, top) {
         top: top
     });
 }
+
 function playAudio(audio_url) {
     if (audio_url) {
         new Howl({

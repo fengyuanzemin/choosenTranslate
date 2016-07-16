@@ -1,46 +1,94 @@
-
-.shanbay_popover{
-	font-family: '微软雅黑';
-	border-radius: 20px;
-	padding:5px;
+.shanbay_popover {
+    font-family: '微软雅黑';
+    border-radius: 20px;
+    padding: 5px;
+    
+}
+.shanbay_container{
 	background-color: #CCE8CF;
+	border-radius: 20px;
 }
-.shanbay_title{
-	padding: 10px 20px;
-	font-size: 16px;
+.shanbay_title {
+    padding: 10px 20px;
+    font-size: 16px;
+    
 }
+
 .shanbay_name,
 .shanbay_us,
-.shanbay_uk{
-	display: inline-block;
-	padding:5px;
+.shanbay_uk {
+    display: inline-block;
+    padding: 5px;
 }
-.shanbay_name{
-	font-size: 18px;
+
+.shanbay_name {
+    font-size: 18px;
 }
-.shanbay_definitions{
-	font-size: 20px;
-	font-weight: bold;
-	padding:20px 30px;
-	margin-bottom: 10px;
+
+.shanbay_definitions {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 30px;
+    margin-bottom: 10px;
 }
-.shanbay_popover .speak{
-	cursor: pointer;
-	display: inline-block;
-	margin-right: 15px!important;
+
+.shanbay_popover .speak {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 15px!important;
 }
-.shanbay_popover .icon-speak{
-	display: inline-block;
-	width: 16px;
-	height: 16px;
-	position: relative;
-	top: 3px;
-	left: 3px;
-	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAABU0lEQVQoU6WSMU7DQBBFGbugDSdAcAG0FjUiErUDEjVQUAckWkQB6SIKuAARBwCJmiQNJdgWCgUUBE6ARUVjmzfWrmSCQ8NKq13/nT9/PPNlZsoyxmyJSJjnecf3/TDLsvMkSVIXLnU8S7rgbWiJw6IoPtg7cRzfKOcX0ZFQ8wjsQ9z0PG+P2H2wBt/bkC+FwBDAWOUGZ5v9CaYKr1EUrekbcUskGIAJ5EUJguCLoFlXMg8pexXsVDEtFcIV2AbnCtAx+8gRn/j5g7J2kTGlvJPw1hJ3ac6DVQq4v3B/LIkE3LmSnLIjKk6Zh6idkLzJ2SX58r+JI+TLUllvNaXe8+7zvwbFZxRHdc3RbjYnmnMNtv6jOXYcwcQ4UjuOsc7RNm0eYt8qL0wzQA+iOAPQyTZ3NcAciVrqnr8s10NpULGczlddU285N46qySmxRYKzqsm/AZFC83O8KzkXAAAAAElFTkSuQmCC) center no-repeat!important;
+
+.shanbay_popover .icon-speak {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 3px;
+    left: 3px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAABU0lEQVQoU6WSMU7DQBBFGbugDSdAcAG0FjUiErUDEjVQUAckWkQB6SIKuAARBwCJmiQNJdgWCgUUBE6ARUVjmzfWrmSCQ8NKq13/nT9/PPNlZsoyxmyJSJjnecf3/TDLsvMkSVIXLnU8S7rgbWiJw6IoPtg7cRzfKOcX0ZFQ8wjsQ9z0PG+P2H2wBt/bkC+FwBDAWOUGZ5v9CaYKr1EUrekbcUskGIAJ5EUJguCLoFlXMg8pexXsVDEtFcIV2AbnCtAx+8gRn/j5g7J2kTGlvJPw1hJ3ac6DVQq4v3B/LIkE3LmSnLIjKk6Zh6idkLzJ2SX58r+JI+TLUllvNaXe8+7zvwbFZxRHdc3RbjYnmnMNtv6jOXYcwcQ4UjuOsc7RNm0eYt8qL0wzQA+iOAPQyTZ3NcAciVrqnr8s10NpULGczlddU285N46qySmxRYKzqsm/AZFC83O8KzkXAAAAAElFTkSuQmCC) center no-repeat!important;
 }
-.shanbay_popover .speak:hover .icon-speak{
-	opacity: 0.8;
+
+.shanbay_popover .speak:hover .icon-speak {
+    opacity: 0.8;
 }
-.shanbay_popover .speak:active .icon-speak{
-	top: 4px;
+
+.shanbay_popover .speak:active .icon-speak {
+    top: 4px;
+}
+
+
+/*
+三角形
+*/
+
+.triangle-up,
+.triangle-down,
+.triangle-left,
+.triangle-right{
+	width: 0;
+    height: 0;
+    margin:0 50px;
+}
+.triangle-up {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #CCE8CF;
+}
+
+.triangle-down {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #CCE8CF;
+}
+
+.triangle-left {
+    border-top: 10px solid transparent;
+    border-right: 20px solid #CCE8CF;
+    border-bottom: 10px solid transparent;
+}
+
+.triangle-right {
+    border-top: 10px solid transparent;
+    border-left: 20px solid #CCE8CF;
+    border-bottom: 10px solid transparent;
 }
