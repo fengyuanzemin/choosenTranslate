@@ -26,6 +26,7 @@
         "css":["css/shanbay.css"],
         "js": [
             "js/jquery.min.js",
+            "js/howler.min.js",
             "js/shanbay.js"
         ],
         "matches": ["*://*/*"]
