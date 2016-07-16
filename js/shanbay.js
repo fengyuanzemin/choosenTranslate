@@ -54,8 +54,8 @@ function popover(alldata) {
         '</div>';
     $('.shanbay_popover').remove();
     $('body').append(html);
-
-    console.log(data);
+    var name=data.audio_name;
+    // console.log(data);
     getSelectionOffset(function(left, top) {
         setPopoverPosition(left, top);
         var h = $(window).scrollTop() + $(window).height();
@@ -68,18 +68,13 @@ function popover(alldata) {
     }).on('click', '.shanbay_popover', function(e) {
         e.stopPropagation();
     });
-    $('body').on('click', '.shanbay_us', function(e) {
-        // e.preventDefault();
-        console.warn(data);
-        console.log(data.us_audio);
-        var url='http://media.shanbay.com/audio/us/'+data.audio_name+'.mp3';
-        playAudio(url);
+    $('.shanbay_us').on('click', function(e) {
+        e.preventDefault();
+        playAudio(data.us_audio);
     })
-    $('body').on('click', '.shanbay_uk', function(e) {
-        // e.preventDefault();
-        console.log(data.uk_audio);
-         var url='http://media.shanbay.com/audio/uk/'+data.audio_name+'.mp3';
-        playAudio(url);
+    $('.shanbay_uk').on('click', function(e) {
+        e.preventDefault();
+        playAudio(data.uk_audio);
     });
 }
 
