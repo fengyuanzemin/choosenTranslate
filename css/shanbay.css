@@ -6,7 +6,7 @@
 	background-color: #CCE8CF;
 }
 .shanbay_title{
-	height: 25px;
+	padding: 10px 20px;
 }
 .shanbay_name,
 .shanbay_us,
@@ -14,6 +14,7 @@
 	display: inline-block;
 	padding:5px;
 }
-.shanbay_definiations{
-	height: 50px;
+.shanbay_definitions{
+	font-weight: bold;
+	padding:20px 30px;
 }
