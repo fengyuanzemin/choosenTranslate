@@ -38,32 +38,54 @@ function normalize(word) {
 
 function popover(alldata) {
     var data = alldata.data;
-    var html = '<div class="shanbay_popover">' +
-        '<div class="triangle-up"></div>' +
-        '<div class="shanbay_container">' +
-        '<div class="shanbay_title">' +
-        '<span class="shanbay_name">' + data.audio_name + '</span><br/>' +
-        '<span class="shanbay_uk speak">' +
-        '<span class="uk_pron">[' + data.pronunciations.uk + ']</span>' +
-        ' <span class="icon-speak"></span>' +
-        '</span>' +
-        '<span class="shanbay_us speak">' +
-        '<span class="us_pron">[' + data.pronunciations.us + ']</span>' +
-        ' <span class="icon-speak"></span>' +
-        '</span>' +
-        '</div>' +
-        '<div class="shanbay_definitions">' + data.definition.split('\n').join('<br/>') +
-        '</div>' +
-        '</div>' +
-        '</div>';
-    $('.shanbay_popover').remove();
-    $('body').append(html);
+    var html = '';
+
     getSelectionOffset(function(left, top) {
-        setPopoverPosition(left, top);
-        var h = $(window).scrollTop() + $(window).height();
-        if (h - 200 < top && h >= top) {
-            $(window).scrollTop(200 + $(window).scrollTop());
+        var html_begin = '<div class="shanbay_popover">';
+        var html_end = '</div>'
+        if (alldata.status_code === 0) {
+            // 查找成功
+            var html_content = '<div class="shanbay_container">' +
+                '<div class="shanbay_title">' +
+                '<span class="shanbay_name">' + data.audio_name + '</span><br/>' +
+                '<span class="shanbay_uk speak">' +
+                '<span class="uk_pron">[' + data.pronunciations.uk + ']</span>' +
+                ' <span class="icon-speak"></span>' +
+                '</span>' +
+                '<span class="shanbay_us speak">' +
+                '<span class="us_pron">[' + data.pronunciations.us + ']</span>' +
+                ' <span class="icon-speak"></span>' +
+                '</span>' +
+                '</div>' +
+                '<div class="shanbay_definitions">' + data.definition.split('\n').join('<br/>') +
+                '</div></div>';
+            var h = $(window).scrollTop() + $(window).height();
+
+            if (h - 200 < top && h >= top) {
+                // 在最底部
+                html = html_begin + html_content + '<div class="triangle-down"></div>' + html_end;
+                $('.shanbay_popover').remove();
+                $('body').append(html);
+                setPopoverPosition(left, top - $('.shanbay_popover').height() - 5);
+            } else { // 默认在上部
+                html = html_begin + '<div class="triangle-up"></div>' + html_content + html_end;
+                $('.shanbay_popover').remove();
+                $('body').append(html);
+                setPopoverPosition(left, top);
+            }
+        } else {
+            // 未找到该单词
+            var html_content = '<div class="shanbay_container">' +
+                '<div class="shanbay_title">' + alldata.msg +
+                '</div>' +
+                '</div>';
+
         }
+
+
+        // 在最右部
+        // 在最左部，暂时认为左右不用管
+
     });
     $('body').on('click', function() {
         hidePopover();
@@ -93,7 +115,7 @@ function getSelectionOffset(callback) {
         var dummy = document.createElement('span');
         range.insertNode(dummy);
         left = $(dummy).offset().left - 50 - dummy.offsetLeft + $(dummy).position().left;
-        top = $(dummy).offset().top + 25 - dummy.offsetTop + $(dummy).position().top;
+        top = $(dummy).offset().top + 13 - dummy.offsetTop + $(dummy).position().top;
         dummy.remove();
         window.getSelection().addRange(range);
         console.log(left + ':' + top);
