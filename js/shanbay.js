@@ -59,20 +59,7 @@ function popover(alldata) {
                 '</div>' +
                 '<div class="shanbay_definitions">' + data.definition.split('\n').join('<br/>') +
                 '</div></div>';
-            var h = $(window).scrollTop() + $(window).height();
 
-            if (h - 200 < top && h >= top) {
-                // 在最底部
-                html = html_begin + html_content + '<div class="triangle-down"></div>' + html_end;
-                $('.shanbay_popover').remove();
-                $('body').append(html);
-                setPopoverPosition(left, top - $('.shanbay_popover').height() - 5);
-            } else { // 默认在上部
-                html = html_begin + '<div class="triangle-up"></div>' + html_content + html_end;
-                $('.shanbay_popover').remove();
-                $('body').append(html);
-                setPopoverPosition(left, top);
-            }
         } else {
             // 未找到该单词
             var html_content = '<div class="shanbay_container">' +
@@ -82,7 +69,20 @@ function popover(alldata) {
 
         }
 
+        var h = $(window).scrollTop() + $(window).height();
 
+        if (h - 200 < top && h >= top) {
+            // 在最底部
+            html = html_begin + html_content + '<div class="triangle-down"></div>' + html_end;
+            $('.shanbay_popover').remove();
+            $('body').append(html);
+            setPopoverPosition(left, top - $('.shanbay_popover').height() - 5);
+        } else { // 默认在上部
+            html = html_begin + '<div class="triangle-up"></div>' + html_content + html_end;
+            $('.shanbay_popover').remove();
+            $('body').append(html);
+            setPopoverPosition(left, top);
+        }
         // 在最右部
         // 在最左部，暂时认为左右不用管
 

@@ -30,6 +30,13 @@
             "js/shanbay.js"
         ],
         "matches": ["*://*/*"]
+    },
+    {
+        "js":[
+            "js/jquery.min.js",
+            "js/filter.js"
+        ],
+        "matches": ["*://*/*"]
     }],
     "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self'"
 }
