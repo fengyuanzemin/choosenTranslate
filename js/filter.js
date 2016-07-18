@@ -7,6 +7,21 @@ var temp = [];
 var filter = /ad-|footer|sub|message|meta|twitter|labels/;
 var filter_head = /head/;
 
+
+// 只能用定时器把这两个元素去掉了
+var a = setInterval(function() {
+    if ($('.content__secondary-column') !== null) {
+        $('.content__secondary-column').remove();
+        clearInterval(a);
+    }
+}, 50);
+
+setInterval(function() {
+    if ($('.element-rich-link') !== null) {
+        $('.element-rich-link').remove();
+    }
+}, 500);
+
 getClassName(element);
 
 function getClassName(ele) {
