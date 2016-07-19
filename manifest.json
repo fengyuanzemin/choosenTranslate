@@ -43,6 +43,13 @@
             "js/filter.js"
         ],
         "matches": ["*://*/*"]
+    },
+    {
+        "js":[
+            "js/jquery.min.js",
+            "js/pagination.js"
+        ],
+        "matches": ["*://*/*"]
     }],
     "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self'"
 }

@@ -21,8 +21,17 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         case 'closeShanbay':
             localStorage.setItem('shanbay', 'false');
             break;
-        // default:
-        //     sendResponse({ data: [] }); // snub them.
+        case 'getFilter':
+            sendResponse({ data: localStorage.getItem('filter') });
+            break;
+        case 'getPagination':
+            sendResponse({ data: localStorage.getItem('pagination') });
+            break;
+        case 'getShanbay':
+            sendResponse({ data: localStorage.getItem('shanbay') });
+            break;
+            // default:
+            //     sendResponse({ data: [] }); // snub them.
     }
 });
 

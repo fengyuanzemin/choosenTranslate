@@ -1,18 +1,11 @@
-// 配置
-if (localStorage.getItem('filter')) {
-    var filter = localStorage.getItem('filter');
-    // var shanbay = localStorage.getItem('shanbay');
-    // var pagination = localStorage.getItem('pagination');
-} 
-// else {
-//     localStorage.setItem('filter', false);
-//     localStorage.setItem('shanbay', true);
-//     localStorage.setItem('pagination', false);
-// }
+// 取得filter是否打开
+chrome.runtime.sendMessage({ method: "getFilter" }, function(response) {
+    var isFilter = response.data;
+    if (isFilter == 'true') {
+        filter();
+    }
+});
 
-if (filter == 'true') {
-    filter();
-}
 
 function filter() {
     // 移除一些不必要的元素

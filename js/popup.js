@@ -30,7 +30,6 @@ if (paginationOpen == 'false') {
     $('.pagination').text('关闭分页')
 }
 $('.pagination').click(function() {
-
     if ($('.pagination').hasClass('closed')) {
         $('.pagination').removeClass('closed');
         $('.pagination').text('关闭分页')
