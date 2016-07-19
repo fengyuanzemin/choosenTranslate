@@ -12,6 +12,13 @@
         "default_popup": "popup.html",
         "default_title": "网页专注阅读器"
     },
+    "background": {
+        "scripts": [
+            "js/jquery.min.js",
+            "js/howler.min.js",
+            "js/background.js"
+        ]
+    },
     "permissions": [
         "cookies",
         "contextMenus",
@@ -26,7 +33,6 @@
         "css":["css/shanbay.css"],
         "js": [
             "js/jquery.min.js",
-            "js/howler.min.js",
             "js/shanbay.js"
         ],
         "matches": ["*://*/*"]

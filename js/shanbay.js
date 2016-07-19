@@ -143,9 +143,5 @@ function setPopoverPosition(left, top) {
 }
 
 function playAudio(audio_url) {
-    if (audio_url) {
-        new Howl({
-            urls: [audio_url]
-        }).play();
-    }
+    chrome.runtime.sendMessage({method: "playAudio", data: {audio_url: audio_url}})
 }
