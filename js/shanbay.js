@@ -24,7 +24,6 @@ function searchingSelectedText() {
             dataType: 'JSON',
             contentType: "application/json; charset=utf-8"
         }).always(function(data) {
-            console.log(data);
             popover(data);
         })
 
@@ -48,11 +47,11 @@ function popover(alldata) {
             var html_content = '<div class="shanbay_container">' +
                 '<div class="shanbay_title">' +
                 '<span class="shanbay_name">' + data.audio_name + '</span><br/>' +
-                '<span class="shanbay_uk speak">' +
+                '<span class="shanbay_uk speak">UK ' +
                 '<span class="uk_pron">[' + data.pronunciations.uk + ']</span>' +
                 ' <span class="icon-speak"></span>' +
                 '</span>' +
-                '<span class="shanbay_us speak">' +
+                '<span class="shanbay_us speak">US ' +
                 '<span class="us_pron">[' + data.pronunciations.us + ']</span>' +
                 ' <span class="icon-speak"></span>' +
                 '</span>' +
