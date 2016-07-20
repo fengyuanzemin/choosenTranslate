@@ -9,7 +9,6 @@ chrome.runtime.sendMessage({ method: "getFilter" }, function(response) {
 
 function filter() {
     // 移除一些不必要的元素
-    // $('body > header').css('display', 'none');
      $('body > header').remove()
     // 以body元素开始
     var element = document.querySelector('body');
@@ -74,11 +73,9 @@ function filter() {
 
     // list里面有所有的class名
     for (var i in list_class) {
-        // $('.' + list_class[i]).css('display', 'none');
         $('.' + list_class[i]).remove()
     }
     for (var j in list_id) {
-        // $('#' + list_id[j]).css('display', 'none');
         $('#' + list_id[j]).remove();
     }
 

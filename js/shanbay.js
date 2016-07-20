@@ -123,7 +123,7 @@ function shanbay() {
             top = $(dummy).offset().top + 13 - dummy.offsetTop + $(dummy).position().top;
             dummy.remove();
             window.getSelection().addRange(range);
-            console.log(left + ':' + top);
+            // console.log(left + ':' + top);
             callback(left, top);
         }
     }
