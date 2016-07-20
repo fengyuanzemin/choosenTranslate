@@ -4,7 +4,6 @@
     "name": "网页专注阅读器",
     "description": "过滤网页广告，能对选中的单词进行翻译",
     "version": "1.0",
-    "minimum_chrome_version": "37",
     "author": "fengyuanzemin",
 
     "browser_action": {
@@ -42,14 +41,15 @@
             "js/jquery.min.js",
             "js/filter.js"
         ],
-        "matches": ["*://*/*"]
+        "matches": ["*://*.theguardian.com/*","*://*.biqukan.com/*"]
     },
     {
+        "css":["css/pagination.css"],
         "js":[
             "js/jquery.min.js",
             "js/pagination.js"
         ],
-        "matches": ["*://*/*"]
+        "matches": ["*://*.theguardian.com/*"]
     }],
     "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self'"
 }

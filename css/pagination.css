@@ -1,0 +1,40 @@
+#pag{
+    z-index: 999;
+	position: fixed;
+	bottom: 30px;
+	right:30px;
+	font-size: 18px;
+    background-color: #CCE8CF;
+    border: none;
+    outline: none;
+    opacity: 0.6;
+}
+#pag:hover{
+	opacity: 1;
+}
+.remind{
+    position: absolute;
+    top: 12px;
+    right: 50px;
+    font-weight: bold;
+    line-height:1;
+    opacity: 0.6;
+}
+.remind:hover{
+    opacity: 1;
+}
+.remind-word{
+    padding:2px;
+    background-color: #CCE8CF
+}
+.triangle {
+    z-index: 999;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 20px solid #CCE8CF;
+    border-bottom: 10px solid transparent; 
+    position: relative;
+    left: -20px;
+    top: 20px;
+}
