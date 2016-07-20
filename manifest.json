@@ -2,7 +2,7 @@
     "manifest_version": 2,
 
     "name": "网页专注阅读器",
-    "description": "过滤网页广告，能对选中的单词进行翻译",
+    "description": "过滤特定网页广告，能对选中的单词进行翻译",
     "version": "1.0",
     "author": "fengyuanzemin",
 
