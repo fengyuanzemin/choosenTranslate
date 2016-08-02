@@ -3,29 +3,11 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         case 'playAudio':
             playAudio(request.data['audio_url']);
             break;
-        case 'openFilter':
-            localStorage.setItem('filter', 'true');
-            break;
-        case 'closeFilter':
-            localStorage.setItem('filter', 'false');
-            break;
-        case 'openPagination':
-            localStorage.setItem('pagination', 'true');
-            break;
-        case 'closePagination':
-            localStorage.setItem('pagination', 'false');
-            break;
         case 'openShanbay':
             localStorage.setItem('shanbay', 'true');
             break;
         case 'closeShanbay':
             localStorage.setItem('shanbay', 'false');
-            break;
-        case 'getFilter':
-            sendResponse({ data: localStorage.getItem('filter') });
-            break;
-        case 'getPagination':
-            sendResponse({ data: localStorage.getItem('pagination') });
             break;
         case 'getShanbay':
             sendResponse({ data: localStorage.getItem('shanbay') });

@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
 
-    "name": "网页专注阅读器",
-    "description": "过滤特定网页广告，能对选中的单词进行翻译",
-    "version": "1.01",
+    "name": "屏幕选词翻译器",
+    "description": "能对选中的单词进行翻译",
+    "version": "1.2",
     "author": "fengyuanzemin",
     "icons": {
         "48": "icon_48.png",
@@ -13,7 +13,7 @@
     "browser_action": {
         "default_icon": "icon_48.png",
         "default_popup": "popup.html",
-        "default_title": "网页专注阅读器"
+        "default_title": "屏幕选词翻译器"
     },
     "background": {
         "scripts": [
@@ -39,21 +39,6 @@
             "js/shanbay.js"
         ],
         "matches": ["*://*/*"]
-    },
-    {
-        "js":[
-            "js/jquery.min.js",
-            "js/filter.js"
-        ],
-        "matches": ["*://*.theguardian.com/*","*://*.biqukan.com/*"]
-    },
-    {
-        "css":["css/pagination.css"],
-        "js":[
-            "js/jquery.min.js",
-            "js/pagination.js"
-        ],
-        "matches": ["*://*.theguardian.com/*"]
     }],
     "content_security_policy": "script-src 'self' 'unsafe-eval' ; object-src 'self'"
 }
