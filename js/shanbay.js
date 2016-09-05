@@ -76,16 +76,15 @@ function shanbay() {
 
             var h = $(window).scrollTop() + $(window).height();
             var body = $('body');
-            var shanbay_popover = $('.shanbay_popover');
             if (h - 200 < top && h >= top) {
                 // 在最底部
                 html = html_begin + html_content + '<div class="triangle-down"></div>' + html_end;
-                shanbay_popover.remove();
+                $('.shanbay_popover').remove();
                 body.append(html);
-                setPopoverPosition(left, top - shanbay_popover.height() - 5);
+                setPopoverPosition(left, top - $('.shanbay_popover').height() - 5);
             } else { // 默认在上部
                 html = html_begin + '<div class="triangle-up"></div>' + html_content + html_end;
-                shanbay_popover.remove();
+                $('.shanbay_popover').remove();
                 body.append(html);
                 setPopoverPosition(left, top);
             }
@@ -121,14 +120,14 @@ function shanbay() {
 
         var selection = window.getSelection();
         if (0 < selection.rangeCount) {
-            var range = window.getSelection().getRangeAt(0);
+            var range = selection.getRangeAt(0);
             var dummy = document.createElement('span');
             range.insertNode(dummy);
             // 获得选区的位置
             left = dummy.getBoundingClientRect().left + document.body.scrollLeft - 50;
             top = dummy.getBoundingClientRect().top + document.body.scrollTop + 13;
             dummy.remove();
-            window.getSelection().addRange(range);
+            selection.addRange(range);
             callback(left, top);
         }
     }
