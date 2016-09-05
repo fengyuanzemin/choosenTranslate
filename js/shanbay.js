@@ -4,7 +4,7 @@
  */
 
 // 取得shanbay是否打开
-chrome.runtime.sendMessage({ method: "getShanbay" }, function(response) {
+chrome.runtime.sendMessage({method: "getShanbay"}, function (response) {
     var isShanbay = response.data;
     if (isShanbay == 'true') {
         shanbay();
@@ -12,7 +12,7 @@ chrome.runtime.sendMessage({ method: "getShanbay" }, function(response) {
 });
 
 function shanbay() {
-    $(function() {
+    $(function () {
         $(document).on('dblclick', searchingSelectedText);
     });
 
@@ -29,9 +29,9 @@ function shanbay() {
                 type: 'GET',
                 dataType: 'JSON',
                 contentType: "application/json; charset=utf-8"
-            }).always(function(data) {
+            }).always(function (data) {
                 popover(data);
-            })
+            });
 
         }
 
@@ -45,7 +45,7 @@ function shanbay() {
         var data = alldata.data;
         var html = '';
 
-        getSelectionOffset(function(left, top) {
+        getSelectionOffset(function (left, top) {
             var html_begin = '<div class="shanbay_popover">';
             var html_end = '</div>'
             if (alldata.status_code === 0) {
@@ -75,33 +75,36 @@ function shanbay() {
             }
 
             var h = $(window).scrollTop() + $(window).height();
-
+            var body = $('body');
+            var shanbay_popover = $('.shanbay_popover');
             if (h - 200 < top && h >= top) {
                 // 在最底部
                 html = html_begin + html_content + '<div class="triangle-down"></div>' + html_end;
-                $('.shanbay_popover').remove();
-                $('body').append(html);
-                setPopoverPosition(left, top - $('.shanbay_popover').height() - 5);
+                shanbay_popover.remove();
+                body.append(html);
+                setPopoverPosition(left, top - shanbay_popover.height() - 5);
             } else { // 默认在上部
                 html = html_begin + '<div class="triangle-up"></div>' + html_content + html_end;
-                $('.shanbay_popover').remove();
-                $('body').append(html);
+                shanbay_popover.remove();
+                body.append(html);
                 setPopoverPosition(left, top);
             }
             // 在最右部
             // 在最左部，暂时认为左右不用管
 
         });
-        $('body').on('click', function() {
+        var body = $('body');
+        body.on('click', function () {
             hidePopover();
-        }).on('click', '.shanbay_popover', function(e) {
+        });
+        body.on('click', '.shanbay_popover', function (e) {
             e.stopPropagation();
         });
-        $('.shanbay_us').on('click', function(e) {
+        body.on('click', '.shanbay_us', function () {
             e.preventDefault();
             playAudio(data.us_audio);
-        })
-        $('.shanbay_uk').on('click', function(e) {
+        });
+        body.on('click', '.shanbay_uk', function (e) {
             e.preventDefault();
             playAudio(data.uk_audio);
         });
@@ -112,18 +115,20 @@ function shanbay() {
     }
 
     function getSelectionOffset(callback) {
+        // 取默认值
         var left = window.innerWidth / 2;
         var top = window.innerHeight / 2;
+
         var selection = window.getSelection();
         if (0 < selection.rangeCount) {
             var range = window.getSelection().getRangeAt(0);
             var dummy = document.createElement('span');
             range.insertNode(dummy);
-            left = $(dummy).offset().left - 50 - dummy.offsetLeft + $(dummy).position().left;
-            top = $(dummy).offset().top + 13 - dummy.offsetTop + $(dummy).position().top;
+            // 获得选区的位置
+            left = dummy.getBoundingClientRect().left + document.body.scrollLeft - 50;
+            top = dummy.getBoundingClientRect().top + document.body.scrollTop + 13;
             dummy.remove();
             window.getSelection().addRange(range);
-            // console.log(left + ':' + top);
             callback(left, top);
         }
     }
@@ -149,6 +154,6 @@ function shanbay() {
     }
 
     function playAudio(audio_url) {
-        chrome.runtime.sendMessage({ method: "playAudio", data: { audio_url: audio_url } })
+        chrome.runtime.sendMessage({method: "playAudio", data: {audio_url: audio_url}})
     }
 }

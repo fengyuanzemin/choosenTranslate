@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     switch (request.method) {
         case 'playAudio':
             playAudio(request.data['audio_url']);
@@ -10,10 +10,10 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             localStorage.setItem('shanbay', 'false');
             break;
         case 'getShanbay':
-            sendResponse({ data: localStorage.getItem('shanbay') });
+            sendResponse({data: localStorage.getItem('shanbay')});
             break;
-            // default:
-            //     sendResponse({ data: [] }); // snub them.
+        default:
+            sendResponse({data: []}); // 传空数据
     }
 });
 
