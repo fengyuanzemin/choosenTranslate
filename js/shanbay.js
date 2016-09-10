@@ -122,10 +122,13 @@ function shanbay() {
         if (0 < selection.rangeCount) {
             var range = selection.getRangeAt(0);
             var dummy = document.createElement('span');
+            dummy.style.display = 'inline-block';
             range.insertNode(dummy);
             // 获得选区的位置
-            left = dummy.getBoundingClientRect().left + document.body.scrollLeft - 50;
-            top = dummy.getBoundingClientRect().top + document.body.scrollTop + 13;
+            var clientRect = dummy.getBoundingClientRect();
+            left = clientRect.left + document.body.scrollLeft - 50;
+            top = clientRect.top + clientRect.height + document.body.scrollTop;
+
             dummy.remove();
             selection.addRange(range);
             callback(left, top);

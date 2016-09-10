@@ -8,7 +8,7 @@ if (shanbayOpen == 'false') {
     shanbay.removeClass('closed');
     shanbay.text('关闭屏幕查词');
 }
-shanbay.click(function () {
+shanbay.click(function (e) {
     if (shanbay.hasClass('closed')) {
         shanbay.removeClass('closed');
         shanbay.text('关闭屏幕查词');
@@ -18,4 +18,5 @@ shanbay.click(function () {
         shanbay.text('开启屏幕查词');
         chrome.runtime.sendMessage({method: "closeShanbay"});
     }
+    e.stopPropagation();
 });
