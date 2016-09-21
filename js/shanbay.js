@@ -99,7 +99,7 @@ function shanbay() {
         body.on('click', '.shanbay_popover', function (e) {
             e.stopPropagation();
         });
-        body.on('click', '.shanbay_us', function () {
+        body.on('click', '.shanbay_us', function (e) {
             e.preventDefault();
             playAudio(data.us_audio);
         });
