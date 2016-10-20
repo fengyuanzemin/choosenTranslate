@@ -1,0 +1,15 @@
+{
+  "name": "shanbay-translate",
+  "version": "1.4.0",
+  "description": "1. 在你的浏览器访问 chrome://extensions  2. 确保右上角的开发者模式是选中的 3. 点击加载已解压的扩展程序 4. 选择你的扩展程序目录",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fengyuanzemin <fengyuanzemin@gmail.com> (http://blog.fengyuanzemin.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0"
+  }
+}
