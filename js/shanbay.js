@@ -6,7 +6,7 @@
 // 取得shanbay是否打开
 chrome.runtime.sendMessage({method: "getShanbay"}, function (response) {
     const isShanbay = response.data;
-    if (isShanbay == 'true') {
+    if (isShanbay === 'true') {
         shanbay();
     }
 });
@@ -19,7 +19,7 @@ function shanbay() {
     // 查询单词
     function searchingSelectedText() {
         const text = window.getSelection().toString().trim().match(/^[a-zA-Z\s']+$/);
-        if (undefined != text && null != text && 0 < text.length) {
+        if (undefined !== text && null !== text && 0 < text.length) {
             const API = 'https://api.shanbay.com/bdc/search/?word=';
             // var url = API + normalize(text);
             const url = API + text;
