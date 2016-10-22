@@ -1,5 +1,5 @@
-.shanbay_popover {
-    font-family: "Helvetica Neue", '微软雅黑', Helvetica, Arial, Sans-Serif;
+.shanbay-popover {
+    font-family: "Helvetica Neue", '微软雅黑', Helvetica, Arial, sans-serif;
     border-radius: 20px;
     padding: 5px;
     z-index: 10000;
@@ -7,28 +7,28 @@
     color: #000;
 }
 
-.shanbay_container {
+.shanbay-container {
     background-color: #CCE8CF;
     border-radius: 20px;
 }
 
-.shanbay_title {
+.shanbay-title {
     padding: 10px 20px;
     font-size: 16px;
 }
 
-.shanbay_name,
-.shanbay_us,
-.shanbay_uk {
+.shanbay-name,
+.shanbay-us,
+.shanbay-uk {
     display: inline-block;
     padding: 5px;
 }
 
-.shanbay_name {
+.shanbay-name {
     font-size: 18px;
 }
 
-.shanbay_definitions {
+.shanbay-definitions {
     font-size: 20px;
     font-weight: bold;
     padding: 20px 30px;
@@ -36,13 +36,13 @@
     line-height: 1.6;
 }
 
-.shanbay_popover .speak {
+.shanbay-popover .speak {
     cursor: pointer;
     display: inline-block;
     margin-right: 15px !important;
 }
 
-.shanbay_popover .icon-speak {
+.shanbay-popover .icon-speak {
     display: inline-block;
     width: 16px;
     height: 16px;
@@ -52,11 +52,11 @@
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAABU0lEQVQoU6WSMU7DQBBFGbugDSdAcAG0FjUiErUDEjVQUAckWkQB6SIKuAARBwCJmiQNJdgWCgUUBE6ARUVjmzfWrmSCQ8NKq13/nT9/PPNlZsoyxmyJSJjnecf3/TDLsvMkSVIXLnU8S7rgbWiJw6IoPtg7cRzfKOcX0ZFQ8wjsQ9z0PG+P2H2wBt/bkC+FwBDAWOUGZ5v9CaYKr1EUrekbcUskGIAJ5EUJguCLoFlXMg8pexXsVDEtFcIV2AbnCtAx+8gRn/j5g7J2kTGlvJPw1hJ3ac6DVQq4v3B/LIkE3LmSnLIjKk6Zh6idkLzJ2SX58r+JI+TLUllvNaXe8+7zvwbFZxRHdc3RbjYnmnMNtv6jOXYcwcQ4UjuOsc7RNm0eYt8qL0wzQA+iOAPQyTZ3NcAciVrqnr8s10NpULGczlddU285N46qySmxRYKzqsm/AZFC83O8KzkXAAAAAElFTkSuQmCC) center no-repeat !important;
 }
 
-.shanbay_popover .speak:hover .icon-speak {
+.shanbay-popover .speak:hover .icon-speak {
     opacity: 0.8;
 }
 
-.shanbay_popover .speak:active .icon-speak {
+.shanbay-popover .speak:active .icon-speak {
     top: 4px;
 }
 
