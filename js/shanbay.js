@@ -2,6 +2,8 @@
  * 任意网页扇贝查词
  *
  */
+
+// 全局变量,放音频URL
 let usAudio, ukAudio;
 
 // 取得shanbay是否打开
@@ -29,13 +31,11 @@ function shanbay() {
             case 'shanbay-us speak':
             case 'icon-speak us-icon':
             case 'us-pron':
-                e.preventDefault();
                 playAudio(usAudio);
                 break;
             case 'shanbay-uk speak':
             case 'icon-speak uk-icon':
             case 'uk-pron':
-                e.preventDefault();
                 playAudio(ukAudio);
                 break;
             default:
@@ -83,7 +83,7 @@ function shanbay() {
             popover.className = 'shanbay-popover';
 
             let htmlContent;
-            const h = $(window).scrollTop() + $(window).height();
+            const h = document.body.scrollTop + document.body.clientHeight;
             // 添加到底部
             const $body = document.querySelector('body');
             $body.appendChild(popover);
@@ -173,11 +173,11 @@ function shanbay() {
     // }
 
     function setPopoverPosition(left, top) {
-        $('.shanbay-popover').css({
-            position: 'absolute',
-            left: left,
-            top: top
-        });
+        const $popover = document.querySelector('.shanbay-popover');
+        $popover.style.position = 'absolute';
+        $popover.style.left = left + 'px';
+        $popover.style.top = top + 'px';
+
     }
 
     function playAudio(audio_url) {
