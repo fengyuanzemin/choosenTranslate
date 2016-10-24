@@ -19,8 +19,7 @@ function shanbay() {
     $body.addEventListener('dblclick', searchingSelectedText);
     $body.addEventListener('click', function (e) {
         e.stopPropagation();
-        const target = e.target;
-        switch (target.className) {
+        switch (e.target.className) {
             case 'shanbay-popover':
             case 'shanbay-definitions':
             case 'shanbay-title':
