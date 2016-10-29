@@ -16,7 +16,26 @@ chrome.runtime.sendMessage({method: "getShanbay"}, function (response) {
 
 function shanbay() {
     const $body = document.querySelector('body');
-    $body.addEventListener('dblclick', searchingSelectedText);
+    $body.addEventListener('dblclick', function (e) {
+        switch (e.target.className) {
+            case 'shanbay-popover':
+            case 'shanbay-definitions':
+            case 'shanbay-title':
+            case 'shanbay-name':
+            case 'triangle-up':
+            case 'triangle-down':
+            case 'shanbay-us speak':
+            case 'icon-speak us-icon':
+            case 'us-pron':
+            case 'shanbay-uk speak':
+            case 'icon-speak uk-icon':
+            case 'uk-pron':
+                break;
+            default:
+                searchingSelectedText();
+                break;
+        }
+    });
     $body.addEventListener('click', function (e) {
         e.stopPropagation();
         switch (e.target.className) {
@@ -57,8 +76,6 @@ function shanbay() {
             $.ajax({
                 url: url,
                 type: 'GET',
-                dataType: 'JSON',
-                contentType: "application/json; charset=utf-8"
             }).always(function (data) {
                 popover(data);
             });
