@@ -73,11 +73,20 @@ function shanbay() {
             if ($popover) {
                 $popover.remove();
             }
-            $.ajax({
-                url: url,
-                type: 'GET',
-            }).always(function (data) {
-                popover(data);
+            // use fetch
+            fetch(url, {
+                method: 'GET',
+                mode: 'cors',
+            }).then(function (res) {
+                if (res.ok) {
+                    res.json().then(function (data) {
+                        popover(data);
+                    });
+                } else {
+                    console.log("Looks like the response wasn't perfect, got status", res.status);
+                }
+            }, function (e) {
+                console.log("Fetch failed!", e);
             });
         }
 

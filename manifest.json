@@ -17,7 +17,6 @@
     },
     "background": {
         "scripts": [
-            "js/jquery.min.js",
             "js/howler.min.js",
             "js/background.js"
         ]
@@ -35,7 +34,6 @@
     {
         "css":["css/shanbay.css"],
         "js": [
-            "js/jquery.min.js",
             "js/shanbay.js"
         ],
         "matches": ["*://*/*"]
