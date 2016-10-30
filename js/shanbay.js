@@ -108,7 +108,7 @@ function shanbay() {
             popover.className = 'shanbay-popover';
 
             let htmlContent;
-            const h = document.body.scrollTop + document.body.clientHeight;
+            const h = document.body.scrollTop + document.documentElement.clientHeight;
             // 添加到底部
             const $body = document.querySelector('body');
             $body.appendChild(popover);
@@ -142,13 +142,14 @@ function shanbay() {
             if (h - 200 < top && h >= top) {
                 // 在最底部
                 html = `${htmlContent}<div class="triangle-down"></div>`;
-                setPopoverPosition(left, top - document.querySelector('.shanbay-popover').height() - 5);
+                popover.innerHTML = html;
+                setPopoverPosition(left, top - document.querySelector('.shanbay-popover').clientHeight);
             } else {
                 // 默认在上部
                 html = `<div class="triangle-up"></div>${htmlContent}`;
+                popover.innerHTML = html;
                 setPopoverPosition(left, top);
             }
-            popover.innerHTML = html;
 
             // 在最右部
             // 在最左部，暂时认为左右不用管
