@@ -1,6 +1,6 @@
 {
   "name": "shanbay-translate",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "1. 在你的浏览器访问 chrome://extensions  2. 确保右上角的开发者模式是选中的 3. 点击加载已解压的扩展程序 4. 选择你的扩展程序目录",
   "main": "index.js",
   "scripts": {
